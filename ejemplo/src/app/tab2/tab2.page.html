@@ -1,0 +1,63 @@
+<ion-app>
+    <ion-menu side="start">
+        <ion-header>
+            <ion-toolbar translucent color="secondary">
+                <ion-title>Home</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-item href="/profile">
+                    <ion-icon name="person" slot="start"></ion-icon>
+                    <ion-label>Profile</ion-label>
+                </ion-item>
+                <ion-item href="/subsidiary">
+                    <ion-icon name="compass" slot="start"></ion-icon>
+                    <ion-label>Subsidiary</ion-label>
+                </ion-item>
+                <ion-item href="/global">
+                    <ion-icon name="bookmarks" slot="start"></ion-icon>
+                    <ion-label>Report</ion-label>
+                </ion-item>
+                <ion-item href="/sales">
+                    <ion-icon name="basket" slot="start"></ion-icon>
+                    <ion-label>Sales</ion-label>
+                </ion-item>
+                <ion-item href="/login">
+                    <ion-icon name="log-out" slot="start"></ion-icon>
+                    <ion-label>Logout</ion-label>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+
+    <div class="ion-page" main>
+        <ion-header>
+            <ion-toolbar color="secondary">
+                <ion-buttons slot="start">
+                    <ion-menu-button></ion-menu-button>
+                </ion-buttons>
+                <ion-title>Inventory</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+            <ion-title>
+                <ion-searchbar animated></ion-searchbar>
+            </ion-title>
+
+            <ion-item *ngFor="let element of data">
+                <div class="col-1">
+                    <img src="{{element.productos.Url2}}" alt="">
+                </div>
+                <div class="col-2">
+                    <ion-label>{{element.productos.Nombre}}</ion-label>
+                </div>
+                <div class="col-3">
+                    <ion-label>Precio: ${{element.productos.Precio}}</ion-label>
+                    <br/>
+                    <ion-label>Stock: {{element.productos.Stock}}</ion-label>
+                </div>
+            </ion-item>
+        </ion-content>
+    </div>
+</ion-app>

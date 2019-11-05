@@ -1,0 +1,75 @@
+<ion-app>
+    <ion-menu side="start">
+        <ion-header>
+            <ion-toolbar translucent color="secondary">
+                <ion-title>Menu</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content>
+            <ion-list>
+                <ion-item href="/profile">
+                    <ion-icon name="person" slot="start"></ion-icon>
+                    <ion-label>Profile</ion-label>
+                </ion-item>
+                <ion-item href="/tabs/tab1">
+                    <ion-icon name="Home" slot="start"></ion-icon>
+                    <ion-label>Home</ion-label>
+                </ion-item>
+
+                <ion-item href="/subsidiary">
+                    <ion-icon name="compass" slot="start"></ion-icon>
+                    <ion-label>Subsidiary</ion-label>
+                </ion-item>
+
+                <ion-item href="/global">
+                    <ion-icon name="bookmarks" slot="start"></ion-icon>
+                    <ion-label>Report</ion-label>
+                </ion-item>
+                <ion-item href="/sales">
+                    <ion-icon name="basket" slot="start"></ion-icon>
+                    <ion-label>Sales</ion-label>
+                </ion-item>
+                <ion-item href="/login">
+                    <ion-icon name="log-out" slot="start"></ion-icon>
+                    <ion-label>Logout</ion-label>
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-menu>
+
+    <div class="ion-page" main>
+        <ion-header>
+            <ion-toolbar color="secondary">
+                <ion-buttons slot="start">
+                    <ion-menu-button></ion-menu-button>
+                </ion-buttons>
+                <ion-title>Sales</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-content class="ion-padding">
+            <ion-searchbar></ion-searchbar>
+            <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+                <ion-fab-button color="warning">
+                    <ion-icon name="cart"></ion-icon>
+                </ion-fab-button>
+            </ion-fab>
+
+
+            <ion-item>
+                <div style="width: 30%; background-color: #f8ffe8; align-content: center">
+                    <img src="https://i1.sndcdn.com/avatars-000699271225-d9pgw4-t500x500.jpg" style="width: 40%; height: 40%; display: block; margin: auto">
+                </div>
+                <div style="background-color: #10dc60; width: 40%; height: 100%">
+                    <ion-label style="height: 33%; text-align: center; background-color: #24d6ea; width: 100%; display: block; margin: auto">a</ion-label>
+                    <ion-label style="height: 33%; text-align: center; background-color: #24d6ea; width: 100%; display: block; margin: auto">b</ion-label>
+                    <ion-label style="height: 33%; text-align: center; background-color: #24d6ea; width: 100%; display: block; margin: auto">c</ion-label>
+                </div>
+                <div style="background-color: #f8ffe8; width: 30%; height: 100%; align-content: center; align-items: center;">
+                    <h1 style="text-align: center; display: block; font-size: 70%; top:1%">Cantidad:</h1>
+                    <ion-input type="number" style="background-color: #24d6ea; border-radius: 16px; width: 75%; height: 20%; display: block; margin:auto; align-content: center"></ion-input>
+                    <ion-button color="secondary" style="display:block; width: 50%; height: 20%; margin: auto; font-size: 55%; word-break: break-word; margin-top: 5%;">Comprar</ion-button>
+                </div>
+            </ion-item>
+        </ion-content>
+    </div>
+</ion-app>
