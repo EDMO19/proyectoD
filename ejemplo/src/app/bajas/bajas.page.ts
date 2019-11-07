@@ -1,21 +1,26 @@
-import {Component, OnInit} from '@angular/core';
-import {AngularFirestore} from "@angular/fire/firestore";
-import {AngularFireStorage} from "@angular/fire/storage";
-import {AlertController} from "@ionic/angular";
+import { Component, OnInit } from '@angular/core';
+import {AngularFirestore} from '@angular/fire/firestore';
+import {AngularFireStorage} from '@angular/fire/storage';
+import {AlertController, ModalController} from "@ionic/angular";
+import {GlobalPage} from "../global/global.page";
+import {ProfilePage} from "../profile/profile.page";
+import {SalesPage} from "../sales/sales.page";
+import {SubsidiaryPage} from "../subsidiary/subsidiary.page";
 
 @Component({
-  selector: 'app-tab2',
-  templateUrl: 'tab2.page.html',
-  styleUrls: ['tab2.page.scss']
+  selector: 'app-bajas',
+  templateUrl: './bajas.page.html',
+  styleUrls: ['./bajas.page.scss'],
 })
-export class Tab2Page implements OnInit {
+export class BajasPage implements OnInit {
   comida: any[];
   ropa: any[];
   electric: any[];
   pape: any[];
 
-  constructor(private db: AngularFirestore, private storage: AngularFireStorage, private AlertCtrl: AlertController) {
-  }
+  constructor(private db: AngularFirestore, private storage: AngularFireStorage, private AlertCtrl: AlertController,
+              private ModCtrl: ModalController) { }
+
   ngOnInit() {
     this.showComida();
     this.showElectric();
@@ -174,4 +179,29 @@ export class Tab2Page implements OnInit {
     });
     return alert.present();
   }
+  async openGlobal() {
+    const modal = await this.ModCtrl.create({
+      component: GlobalPage,
+    });
+    await modal.present();
+  }
+  async openProfile() {
+    const modal = await this.ModCtrl.create({
+      component: ProfilePage,
+    });
+    await modal.present();
+  }
+  async openSales() {
+    const modal = await this.ModCtrl.create({
+      component: SalesPage,
+    });
+    await modal.present();
+  }
+  async openSubsidiary() {
+    const modal = await this.ModCtrl.create({
+      component: SubsidiaryPage,
+    });
+    await modal.present();
+  }
+
 }

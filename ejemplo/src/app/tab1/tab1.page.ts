@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import {NavController}from '@ionic/angular';
+import {ModalController, NavController, PopoverController} from '@ionic/angular';
+import {AltasPage} from '../altas/altas.page';
+import {BajasPage} from '../bajas/bajas.page';
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -7,7 +10,7 @@ import {NavController}from '@ionic/angular';
 })
 export class Tab1Page {
 
-  constructor(private NavC:NavController) {}
+  constructor(private NavC: NavController, private PopCtrl: PopoverController, private ModCtrl: ModalController) {}
 
   openMenu() {
     document.querySelector('ion-menu-controller')
@@ -15,6 +18,18 @@ export class Tab1Page {
   }
   Move(){
     this.NavC.navigateForward('/altas');
+  }
+  async Openaltaspage() {
+    const altas1 = await this.ModCtrl.create({
+      component: AltasPage,
+    });
+    await altas1.present();
+  }
+  async Opendeletepage() {
+    const delete1 = await this.ModCtrl.create({
+      component: BajasPage,
+    });
+    await delete1.present();
   }
 }
 /*import {Component, OnInit} from '@angular/core';

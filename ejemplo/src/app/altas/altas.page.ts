@@ -3,6 +3,13 @@ import {AngularFirestore} from "@angular/fire/firestore";
 import {AngularFireStorage} from "@angular/fire/storage";
 import {Observable, pipe} from "rxjs";
 import {finalize} from "rxjs/operators";
+import {AlertController, ModalController} from "@ionic/angular";
+import {GlobalPage} from "../global/global.page";
+import {ProfilePage} from "../profile/profile.page";
+import {SalesPage} from "../sales/sales.page";
+import {SubsidiaryPage} from "../subsidiary/subsidiary.page";
+
+
 
 @Component({
   selector: 'app-altas',
@@ -14,9 +21,11 @@ export class AltasPage {
   uploadURL: Observable<string>;
   producto;
   file: any;
-  data : any[];
+  data: any[];
+  categoria: string;
 
-  constructor(private database: AngularFirestore, private storage: AngularFireStorage) { }
+  constructor(private database: AngularFirestore, private storage: AngularFireStorage, private AlerCtrl: AlertController,
+              private ModCtrl: ModalController) { }
 
   altaProducto() {
     const randomId = Math.random().toString(36).substring(2, 9);
@@ -30,13 +39,14 @@ export class AltasPage {
     const name = (document.getElementById('nombre') as HTMLIonInputElement).value;
     const price = parseInt((document.getElementById('precio') as HTMLIonInputElement).value);
     const stock = parseInt((document.getElementById('stock') as HTMLIonInputElement).value);
-    this.producto ={Nombre: name,Precio: price,Url: filepath, Stock: stock};
-    this.database.collection('Productos').add(this.producto);
+    const pricemen = parseInt((document.getElementById('precio-men') as HTMLIonInputElement).value);
+    const pricemay = parseInt((document.getElementById('precio-may') as HTMLIonInputElement).value);
+    this.producto = {Nombre: name, Precio: price, Url: filepath, Stock: stock, PrecioMen: pricemen, PrecioMay: pricemay};
+    this.database.collection(this.categoria).add(this.producto);
+    this.addProduct();
   }
-    showimg(event){
-
+    showimg(event) {
     this.file = event.target.files[0];
-
     const input = event.target;
     const reader = new FileReader();
     reader.onload = function(){
@@ -47,6 +57,53 @@ export class AltasPage {
       }
     };
     reader.readAsDataURL(input.files[0]);
+  }
+  selectCategoria() {
+    switch (this.categoria) {
+      case 'comida':
+        this.categoria = 'Comida';
+        break;
+      case 'electronicos':
+        this.categoria = 'Electronicos';
+        break;
+      case 'ropa':
+        this.categoria = 'Ropa';
+        break;
+      case 'papeleria':
+        this.categoria = 'Papeleria';
+        break;
+    }
+  }
+  async addProduct() {
+    const alert = await this.AlerCtrl.create({
+      message: 'Producto agregado',
+      animated: true
+    });
+    await alert.present();
+  }
+  async openGlobal() {
+    const modal = await this.ModCtrl.create({
+      component: GlobalPage,
+    });
+    await modal.present();
+  }
+  async openProfile() {
+    const modal = await this.ModCtrl.create({
+      component: ProfilePage,
+    });
+    await modal.present();
+  }
+  async openSales() {
+    const modal = await this.ModCtrl.create({
+      component: SalesPage,
+    });
+    await modal.present();
+  }
+  async openSubsidiary() {
+    const modal = await this.ModCtrl.create({
+      component: SubsidiaryPage,
+    });
+    await modal.present();
   }
 
 }

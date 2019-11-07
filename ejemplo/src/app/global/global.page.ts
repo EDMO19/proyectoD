@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import {NavController, Platform} from '@ionic/angular';
+import {ModalController, NavController, Platform} from '@ionic/angular';
 import {File} from '@ionic-native/file/ngx';
 import {FileOpener} from '@ionic-native/file-opener/ngx';
 
-import pdfMake from 'pdfmake/build/pdfmake'
-import pdfFonts from 'pdfmake/build/vfs_fonts'
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
 import {AngularFirestore} from "@angular/fire/firestore";
 import {AngularFireStorage} from "@angular/fire/storage";
+import {ProfilePage} from "../profile/profile.page";
+import {SalesPage} from "../sales/sales.page";
+import {SubsidiaryPage} from "../subsidiary/subsidiary.page";
+import {Tab1Page} from "../tab1/tab1.page";
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -21,7 +25,8 @@ export class GlobalPage implements OnInit {
   data: any[];
   contenido = '';
 
-  constructor(public navCtrl: NavController, private plt: Platform, private file: File, private fileOpener: FileOpener, private database: AngularFirestore, private storage: AngularFireStorage) { }
+  constructor(public navCtrl: NavController, private plt: Platform, private file: File, private fileOpener: FileOpener,
+              private database: AngularFirestore, private storage: AngularFireStorage, private ModCtrl: ModalController) { }
 
   ngOnInit() {
     this.showdata();
@@ -84,6 +89,24 @@ export class GlobalPage implements OnInit {
     }else{
       this.pdfObj.download();
     }
+  }
+  async openProfile() {
+    const modal = await this.ModCtrl.create({
+      component: ProfilePage,
+    });
+    await modal.present();
+  }
+  async openSales() {
+    const modal = await this.ModCtrl.create({
+      component: SalesPage,
+    });
+    await modal.present();
+  }
+  async openSubsidiary() {
+    const modal = await this.ModCtrl.create({
+      component: SubsidiaryPage,
+    });
+    await modal.present();
   }
 
 

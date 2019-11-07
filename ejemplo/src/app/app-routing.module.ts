@@ -12,7 +12,8 @@ const routes: Routes = [
   { path: 'global', loadChildren: './global/global.module#GlobalPageModule' },
   { path: 'subsidiary', loadChildren: './subsidiary/subsidiary.module#SubsidiaryPageModule' },
   { path: 'sales', loadChildren: './sales/sales.module#SalesPageModule' },
-  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' }
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },  { path: 'bajas', loadChildren: './bajas/bajas.module#BajasPageModule' }
+
 
 ];
 @NgModule({

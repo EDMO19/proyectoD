@@ -15,13 +15,20 @@ import {AngularFireStorageModule} from '@angular/fire/storage';
 import {AngularFireModule} from '@angular/fire';
 import {File } from '@ionic-native/file/ngx';
 import { FileOpener } from '@ionic-native/file-opener/ngx';
-
+import {AltasPageModule} from './altas/altas.module';
+import {BajasPageModule} from './bajas/bajas.module';
+import {ProfilePageModule} from "./profile/profile.module";
+import {SalesPageModule} from "./sales/sales.module";
+import {SubsidiaryPageModule} from "./subsidiary/subsidiary.module";
+import {UserPageModule} from "./user/user.module";
+import {GlobalPageModule} from "./global/global.module";
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireStorageModule, AngularFirestoreModule],
+    AngularFireStorageModule, AngularFirestoreModule, AltasPageModule, BajasPageModule, ProfilePageModule, SalesPageModule,
+  SubsidiaryPageModule, UserPageModule, GlobalPageModule],
   providers: [
     StatusBar,
     SplashScreen,
