@@ -32,7 +32,7 @@ import {GlobalPageModule} from "./global/global.module";
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },File,FileOpener
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, File, FileOpener
   ],
   bootstrap: [AppComponent]
 })
