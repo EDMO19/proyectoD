@@ -44,12 +44,22 @@ export class AltasPage {
     this.producto = {Nombre: name, Precio: price, Url: filepath, Stock: stock, PrecioMen: pricemen, PrecioMay: pricemay};
     this.database.collection(this.categoria).add(this.producto);
     this.addProduct();
+    const name1 = (document.getElementById('nombre') as HTMLIonInputElement);
+    name1.value = '';
+    const price1 =  (document.getElementById('precio') as HTMLIonInputElement);
+    price1.value ='';
+    const stock1 = (document.getElementById('stock') as HTMLIonInputElement);
+    stock1.value = '';
+    const pricemen1 = (document.getElementById('precio-men') as HTMLIonInputElement);
+    pricemen1.value = '';
+    const pricemay1 = (document.getElementById('precio-may') as HTMLIonInputElement);
+    pricemay1.value = '';
   }
     showimg(event) {
     this.file = event.target.files[0];
     const input = event.target;
     const reader = new FileReader();
-    reader.onload = function(){
+    reader.onload = function() {
       const dataURL = reader.result;
       const img = (document.getElementById('output') as HTMLImageElement);
       if(typeof dataURL === 'string'){
@@ -80,30 +90,6 @@ export class AltasPage {
       animated: true
     });
     await alert.present();
-  }
-  async openGlobal() {
-    const modal = await this.ModCtrl.create({
-      component: GlobalPage,
-    });
-    await modal.present();
-  }
-  async openProfile() {
-    const modal = await this.ModCtrl.create({
-      component: ProfilePage,
-    });
-    await modal.present();
-  }
-  async openSales() {
-    const modal = await this.ModCtrl.create({
-      component: SalesPage,
-    });
-    await modal.present();
-  }
-  async openSubsidiary() {
-    const modal = await this.ModCtrl.create({
-      component: SubsidiaryPage,
-    });
-    await modal.present();
   }
 
 }

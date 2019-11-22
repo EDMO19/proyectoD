@@ -13,6 +13,11 @@ export class Tab2Page implements OnInit {
   ropa: any[];
   electric: any[];
   pape: any[];
+  searchcomida= '';
+  searchropa='';
+  searchelectric='';
+  searchpape='';
+
 
   constructor(private db: AngularFirestore, private storage: AngularFireStorage, private AlertCtrl: AlertController) {
   }
@@ -98,7 +103,7 @@ export class Tab2Page implements OnInit {
       }
     });
   }
-  async delelecliente1(id, url) {
+  async updatecliente1(id, url) {
     const alert = await this.AlertCtrl.create({
       message: '¿Esta seguro de eliminar el producto?',
       buttons: [
@@ -117,7 +122,7 @@ export class Tab2Page implements OnInit {
     });
     return alert.present();
   }
-  async delelecliente2(id, url) {
+  async updatecliente2(id, url) {
     const alert = await this.AlertCtrl.create({
       message: '¿Esta seguro de eliminar el producto?',
       buttons: [
@@ -136,7 +141,7 @@ export class Tab2Page implements OnInit {
     });
     return alert.present();
   }
-  async delelecliente3(id, url) {
+  async updatecliente3(id, url) {
     const alert = await this.AlertCtrl.create({
       message: '¿Esta seguro de eliminar el producto?',
       buttons: [
@@ -155,7 +160,7 @@ export class Tab2Page implements OnInit {
     });
     return alert.present();
   }
-  async delelecliente4(id, url) {
+  async updatecliente4(id, url) {
     const alert = await this.AlertCtrl.create({
       message: '¿Esta seguro de eliminar el producto?',
       buttons: [
@@ -174,4 +179,11 @@ export class Tab2Page implements OnInit {
     });
     return alert.present();
   }
+  search(event) {
+    this.searchcomida = event.detail.value;
+    this.searchelectric = event.detail.value;
+    this.searchpape = event.detail.value;
+    this.searchropa = event.detail.value;
+  }
+
 }

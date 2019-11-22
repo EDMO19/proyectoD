@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TabsPage } from './tabs.page';
+import {SalesPage} from "../sales/sales.page";
 
 const routes: Routes = [
   {
@@ -34,6 +35,16 @@ const routes: Routes = [
             path: '',
             loadChildren: () =>
               import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+          }
+        ]
+      },
+      {
+        path: 'sales',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+                import('../sales/sales.module').then(m => m.SalesPageModule)
           }
         ]
       },

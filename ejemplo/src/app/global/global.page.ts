@@ -90,24 +90,7 @@ export class GlobalPage implements OnInit {
       this.pdfObj.download();
     }
   }
-  async openProfile() {
-    const modal = await this.ModCtrl.create({
-      component: ProfilePage,
-    });
-    await modal.present();
-  }
-  async openSales() {
-    const modal = await this.ModCtrl.create({
-      component: SalesPage,
-    });
-    await modal.present();
-  }
-  async openSubsidiary() {
-    const modal = await this.ModCtrl.create({
-      component: SubsidiaryPage,
-    });
-    await modal.present();
-  }
+
 
 
 }
