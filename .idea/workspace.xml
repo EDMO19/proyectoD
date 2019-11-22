@@ -8,6 +8,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -16,7 +23,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="excluded.www.directory" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Api/Ejemplo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -53,6 +60,18 @@
       <workItem from="1572991256113" duration="3284000" />
       <workItem from="1573004417193" duration="13325000" />
       <workItem from="1573045410707" duration="849000" />
+      <workItem from="1573226308837" duration="591000" />
+      <workItem from="1573477720143" duration="539000" />
+      <workItem from="1573563726220" duration="5964000" />
+      <workItem from="1573585351252" duration="588000" />
+      <workItem from="1573649825987" duration="577000" />
+      <workItem from="1573656523231" duration="4756000" />
+      <workItem from="1573784079361" duration="212000" />
+      <workItem from="1574202884320" duration="2720000" />
+      <workItem from="1574266747693" duration="1817000" />
+      <workItem from="1574353005640" duration="400000" />
+      <workItem from="1574387484132" duration="1191000" />
+      <workItem from="1574391953853" duration="5546000" />
     </task>
     <servers />
   </component>

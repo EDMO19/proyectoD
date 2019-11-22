@@ -6,6 +6,7 @@ import {GlobalPage} from "../global/global.page";
 import {ProfilePage} from "../profile/profile.page";
 import {SalesPage} from "../sales/sales.page";
 import {SubsidiaryPage} from "../subsidiary/subsidiary.page";
+import {PipesModule} from "../filtro/pipes.module";
 
 @Component({
   selector: 'app-bajas',
@@ -17,6 +18,10 @@ export class BajasPage implements OnInit {
   ropa: any[];
   electric: any[];
   pape: any[];
+  searchComida='';
+  searchElectric="";
+  searchPape="";
+  searchRopa="";
 
   constructor(private db: AngularFirestore, private storage: AngularFireStorage, private AlertCtrl: AlertController,
               private ModCtrl: ModalController) { }
@@ -103,6 +108,12 @@ export class BajasPage implements OnInit {
       }
     });
   }
+  search(event) {
+    this.searchComida = event.detail.value;
+    this.searchElectric = event.detail.value;
+    this.searchPape = event.detail.value;
+    this.searchRopa = event.detail.value;
+  }
   async delelecliente1(id, url) {
     const alert = await this.AlertCtrl.create({
       message: '¿Esta seguro de eliminar el producto?',
@@ -179,29 +190,6 @@ export class BajasPage implements OnInit {
     });
     return alert.present();
   }
-  async openGlobal() {
-    const modal = await this.ModCtrl.create({
-      component: GlobalPage,
-    });
-    await modal.present();
-  }
-  async openProfile() {
-    const modal = await this.ModCtrl.create({
-      component: ProfilePage,
-    });
-    await modal.present();
-  }
-  async openSales() {
-    const modal = await this.ModCtrl.create({
-      component: SalesPage,
-    });
-    await modal.present();
-  }
-  async openSubsidiary() {
-    const modal = await this.ModCtrl.create({
-      component: SubsidiaryPage,
-    });
-    await modal.present();
-  }
+
 
 }

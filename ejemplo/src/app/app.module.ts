@@ -22,13 +22,15 @@ import {SalesPageModule} from "./sales/sales.module";
 import {SubsidiaryPageModule} from "./subsidiary/subsidiary.module";
 import {UserPageModule} from "./user/user.module";
 import {GlobalPageModule} from "./global/global.module";
+import {PipesModule} from "./filtro/pipes.module";
+
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule, AngularFirestoreModule, AltasPageModule, BajasPageModule, ProfilePageModule, SalesPageModule,
-  SubsidiaryPageModule, UserPageModule, GlobalPageModule],
+  SubsidiaryPageModule, UserPageModule, GlobalPageModule, PipesModule],
   providers: [
     StatusBar,
     SplashScreen,

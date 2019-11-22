@@ -1,5 +1,5 @@
 <ion-app>
-    <ion-menu side="start">
+    <ion-menu side="start" contentId="my-content">
         <ion-header>
             <ion-toolbar translucent color="secondary">
                 <ion-title>Menu</ion-title>
@@ -33,7 +33,7 @@
         </ion-content>
     </ion-menu>
 
-    <div class="ion-page" main>
+    <div class="ion-page" id="my-content">
         <ion-header>
             <ion-toolbar color="secondary">
                 <ion-buttons slot="start">
@@ -41,31 +41,119 @@
                 </ion-buttons>
                 <ion-title>Sales</ion-title>
             </ion-toolbar>
+            <ion-searchbar (ionChange)="search($event)" animated></ion-searchbar>
         </ion-header>
         <ion-content class="ion-padding">
-            <ion-searchbar></ion-searchbar>
+
             <ion-fab vertical="bottom" horizontal="end" slot="fixed">
                 <ion-fab-button color="warning">
                     <ion-icon name="cart"></ion-icon>
                 </ion-fab-button>
             </ion-fab>
+            <ion-list *ngFor="let element of comida | filtro: searchcomida" >
+                    <ion-item class="ion-text-capitalize" (click)="in()">
+                        <div class="col-1">
+                            <img class="img" src="{{element.productos.Url2}}" alt=""/>
+                        </div>
+                        <div class="col-2">
+                            <ion-label class="ion-text-wrap">{{element.productos.Nombre}}</ion-label>
+                            <br>
+                            <ion-label class="ion-text-wrap">Departamento: Comida</ion-label>
+                            <br/>
+                            <ion-label>Precio: ${{element.productos.Precio}}</ion-label>
+                            <ion-label>Menudeo: ${{element.productos.PrecioMay}}</ion-label>
+                            <ion-label>Mayoreo: ${{element.productos.PrecioMen}}</ion-label>
+                            <br/>
+                            <ion-label>Stock: {{element.productos.Stock}} Pza(s)</ion-label>
+                        </div>
+                        <!-- <div class="col-3">
+                            <ion-label>Cantidad</ion-label>
+                            <br>
+                            <ion-input type="number" [(ngModel)]="cantidad"></ion-input>
+                            <br>
+                            <ion-button (click)="comprar(element.productos.Nombre,element.productos.Precio,element.productos.PrecioMay,element.productos.Stock)"></ion-button>
+                        </div>-->
+                    </ion-item>
+            </ion-list>
+            <ion-list *ngFor="let element of ropa | filtro: searchropa" >
+                    <ion-item class="ion-text-capitalize">
+                        <div class="col-1">
+                            <img class="img" src="{{element.productos.Url2}}" alt="">
+                        </div>
+                        <div class="col-2">
+                            <ion-label class="ion-text-wrap">{{element.productos.Nombre}}</ion-label>
+                            <br>
+                            <ion-label class="ion-text-wrap">Departamento: Ropa</ion-label>
+                            <br/>
+                            <ion-label>Precio: ${{element.productos.Precio}}</ion-label>
+                            <ion-label>Menudeo: ${{element.productos.PrecioMay}}</ion-label>
+                            <ion-label>Mayoreo: ${{element.productos.PrecioMen}}</ion-label>
+                            <br/>
+                            <ion-label>Stock: {{element.productos.Stock}} Pza(s)</ion-label>
+                        </div>
+                        <div class="col-3">
+                            <ion-label>Cantidad</ion-label>
+                            <br>
+                            <ion-input type="number" [(ngModel)]="cantidad"></ion-input>
+                            <br>
+                            <ion-button></ion-button>
+                        </div>
+                    </ion-item>
+            </ion-list>
+            <ion-list *ngFor="let element of pape | filtro: searchpape" >
+
+                    <ion-item class="ion-text-capitalize">
+                        <div class="col-1">
+                            <img class="img" src="{{element.productos.Url2}}" alt="">
+                        </div>
+                        <div class="col-2">
+                            <ion-label class="ion-text-wrap">{{element.productos.Nombre}}</ion-label>
+                            <br>
+                            <ion-label class="ion-text-wrap">Departamento: Papeleria</ion-label>
+                            <br/>
+                            <ion-label>Precio: ${{element.productos.Precio}}</ion-label>
+                            <ion-label>Menudeo: ${{element.productos.PrecioMay}}</ion-label>
+                            <ion-label>Mayoreo: ${{element.productos.PrecioMen}}</ion-label>
+                            <br/>
+                            <ion-label>Stock: {{element.productos.Stock}} Pza(s)</ion-label>
+                        </div>
+                        <div class="col-3">
+                            <ion-label>Cantidad</ion-label>
+                            <br>
+                            <ion-input type="number" [(ngModel)]="cantidad"></ion-input>
+                            <br>
+                            <ion-button></ion-button>
+                        </div>
+                    </ion-item>
+            </ion-list>
+            <ion-list *ngFor="let element of electric | filtro: searchelectric" >
+                    <ion-item class="ion-text-capitalize">
+                        <div class="col-1">
+                            <img class="img" src="{{element.productos.Url2}}" alt="">
+                        </div>
+                        <div class="col-2">
+                            <ion-label class="ion-text-wrap">{{element.productos.Nombre}}</ion-label>
+                            <br>
+                            <ion-label class="ion-text-wrap">Departamento: Electronicos</ion-label>
+                            <br/>
+                            <ion-label>Precio: ${{element.productos.Precio}}</ion-label>
+                            <ion-label>Menudeo: ${{element.productos.PrecioMay}}</ion-label>
+                            <ion-label>Mayoreo: ${{element.productos.PrecioMen}}</ion-label>
+                            <br/>
+                            <ion-label>Stock: {{element.productos.Stock}} Pza(s)</ion-label>
+                        </div>
+                        <div class="col-3">
+                            <ion-label>Cantidad</ion-label>
+                            <br>
+                            <ion-input type="number" [(ngModel)]="cantidad"></ion-input>
+                            <br>
+                            <ion-button></ion-button>
+                        </div>
+                    </ion-item>
+            </ion-list>
 
 
-            <ion-item>
-                <div style="width: 30%; background-color: #f8ffe8; align-content: center">
-                    <img src="https://i1.sndcdn.com/avatars-000699271225-d9pgw4-t500x500.jpg" style="width: 40%; height: 40%; display: block; margin: auto">
-                </div>
-                <div style="background-color: #10dc60; width: 40%; height: 100%">
-                    <ion-label style="height: 33%; text-align: center; background-color: #24d6ea; width: 100%; display: block; margin: auto">a</ion-label>
-                    <ion-label style="height: 33%; text-align: center; background-color: #24d6ea; width: 100%; display: block; margin: auto">b</ion-label>
-                    <ion-label style="height: 33%; text-align: center; background-color: #24d6ea; width: 100%; display: block; margin: auto">c</ion-label>
-                </div>
-                <div style="background-color: #f8ffe8; width: 30%; height: 100%; align-content: center; align-items: center;">
-                    <h1 style="text-align: center; display: block; font-size: 70%; top:1%">Cantidad:</h1>
-                    <ion-input type="number" style="background-color: #24d6ea; border-radius: 16px; width: 75%; height: 20%; display: block; margin:auto; align-content: center"></ion-input>
-                    <ion-button color="secondary" style="display:block; width: 50%; height: 20%; margin: auto; font-size: 55%; word-break: break-word; margin-top: 5%;">Comprar</ion-button>
-                </div>
-            </ion-item>
+
         </ion-content>
     </div>
 </ion-app>
