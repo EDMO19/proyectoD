@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {GlobalPage} from "../global/global.page";
 import {ProfilePage} from "../profile/profile.page";
 import {SubsidiaryPage} from "../subsidiary/subsidiary.page";
-import {AlertController, ModalController} from "@ionic/angular";
+import {AlertController, ModalController, PopoverController} from "@ionic/angular";
 import {AngularFirestore} from "@angular/fire/firestore";
 import {AngularFireStorage} from "@angular/fire/storage";
+import {CarritoService} from "../carrito.service";
+import  {CarPage} from "../car/car.page";
 
 @Component({
   selector: 'app-sales',
@@ -21,8 +23,9 @@ export class SalesPage implements OnInit {
   searchelectric='';
   searchpape='';
   cantidad = 0;
+  cant=0;
   constructor(private ModCtrl: ModalController, private db: AngularFirestore, private storage: AngularFireStorage,
-              private AlertCtrl: AlertController) { }
+              private PoptCtrl: PopoverController, private carservice: CarritoService) { }
 
   ngOnInit() {
     this.showComida();
@@ -130,36 +133,15 @@ export class SalesPage implements OnInit {
     this.searchpape = event.detail.value;
     this.searchropa = event.detail.value;
   }
-  comprar(nombre,precio1,precio2,stock){
-    const carrito={Nombre:nombre, precio:precio1, };
-
-
+  in(producto) {
+    this.carservice.addCar(producto);
   }
-  async in(){
-    const alert = await this.AlertCtrl.create({
-      message: 'Ingrese cantidad',
-      inputs: [
-        {name: 'Cantidad',
-         type: 'number'}
-      ],
-      buttons: [
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          handler: () => {
-            console.log('Confirm Cancel');
-          }
-        },
-        {
-          text: 'Agregar',
-          handler: () => {
-            console.log('poto');
-            //funntion
-          }
+  async openecar() {
+    const popo = await  this.PoptCtrl.create({
+      component: CarPage,
+      cssClass: 'popo',
 
-        }
-      ]
     });
-
+    await popo.present();
   }
 }

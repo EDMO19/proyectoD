@@ -23,7 +23,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="excluded.www.directory" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../carrito/ng4-carrito-compra-w-lazyloading" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -72,6 +72,10 @@
       <workItem from="1574353005640" duration="400000" />
       <workItem from="1574387484132" duration="1191000" />
       <workItem from="1574391953853" duration="5546000" />
+      <workItem from="1574463301489" duration="3643000" />
+      <workItem from="1574774150167" duration="1688000" />
+      <workItem from="1574803011784" duration="6168000" />
+      <workItem from="1574959524267" duration="303000" />
     </task>
     <servers />
   </component>

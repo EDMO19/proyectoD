@@ -46,12 +46,12 @@
         <ion-content class="ion-padding">
 
             <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-                <ion-fab-button color="warning">
-                    <ion-icon name="cart"></ion-icon>
+                <ion-fab-button (click)="openecar()" color="warning">
+                    <ion-icon  name="cart"></ion-icon>
                 </ion-fab-button>
             </ion-fab>
             <ion-list *ngFor="let element of comida | filtro: searchcomida" >
-                    <ion-item class="ion-text-capitalize" (click)="in()">
+                    <ion-item class="ion-text-capitalize">
                         <div class="col-1">
                             <img class="img" src="{{element.productos.Url2}}" alt=""/>
                         </div>
@@ -66,13 +66,9 @@
                             <br/>
                             <ion-label>Stock: {{element.productos.Stock}} Pza(s)</ion-label>
                         </div>
-                        <!-- <div class="col-3">
-                            <ion-label>Cantidad</ion-label>
-                            <br>
-                            <ion-input type="number" [(ngModel)]="cantidad"></ion-input>
-                            <br>
-                            <ion-button (click)="comprar(element.productos.Nombre,element.productos.Precio,element.productos.PrecioMay,element.productos.Stock)"></ion-button>
-                        </div>-->
+                        <div class="col-3">
+                            <ion-button (click)="in(element.productos)">Agregar al carrito</ion-button>
+                        </div>
                     </ion-item>
             </ion-list>
             <ion-list *ngFor="let element of ropa | filtro: searchropa" >

@@ -23,6 +23,8 @@ import {SubsidiaryPageModule} from "./subsidiary/subsidiary.module";
 import {UserPageModule} from "./user/user.module";
 import {GlobalPageModule} from "./global/global.module";
 import {PipesModule} from "./filtro/pipes.module";
+import {CarPageModule} from "./car/car.module";
+import {CarritoService} from "./carrito.service";
 
 
 @NgModule({
@@ -30,8 +32,9 @@ import {PipesModule} from "./filtro/pipes.module";
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule, AngularFirestoreModule, AltasPageModule, BajasPageModule, ProfilePageModule, SalesPageModule,
-  SubsidiaryPageModule, UserPageModule, GlobalPageModule, PipesModule],
+  SubsidiaryPageModule, UserPageModule, GlobalPageModule, PipesModule, CarPageModule],
   providers: [
+    CarritoService,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, File, FileOpener
