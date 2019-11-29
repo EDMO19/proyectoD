@@ -20,10 +20,21 @@ export class GlobalPage implements OnInit {
   pdfObj = null;
   data: any[];
   ID = '';
-  producto = '';
-  departamento = '';
-  Unidades = '';
-  precio = '';
+  productoC = '';
+  UnidadesC = '';
+  precioC = '';
+
+  productoE = '';
+  UnidadesE = '';
+  precioE = '';
+
+  productoP = '';
+  UnidadesP = '';
+  precioP = '';
+
+  productoR = '';
+  UnidadesR = '';
+  precioR = '';
 
   constructor(public navCtrl: NavController, private plt: Platform, private file: File, private fileOpener: FileOpener,
               private database: AngularFirestore, private storage: AngularFireStorage, private ModCtrl: ModalController) {
@@ -54,16 +65,14 @@ export class GlobalPage implements OnInit {
       for (const cont of this.data) {
         if (cont.comida.Stock < 5) {
           this.ID = this.ID + cont.id + '\n';
-          this.producto = this.producto + cont.comida.Nombre;
-          this.departamento = this.departamento + 'Comida' + '\n';
-          this.Unidades = this.Unidades + cont.comida.Stock + ' -- !!!!PRODUCTO APUNTO DE AGOTARSE!!!!' + '\n';
-          this.precio = this.precio + cont.comida.Precio + '\n';
+          this.productoC = this.productoC + cont.comida.Nombre;
+          this.UnidadesC = this.UnidadesC + cont.comida.Stock + ' -- !!!!PRODUCTO APUNTO DE AGOTARSE!!!!' + '\n';
+          this.precioC = this.precioC + cont.comida.Precio + '\n';
         } else {
           this.ID = this.ID + cont.id + '\n';
-          this.producto = this.producto + cont.comida.Nombre + '\n';
-          this.departamento = this.departamento + 'Comida' + '\n';
-          this.Unidades = this.Unidades + cont.comida.Stock + '\n';
-          this.precio = this.precio + cont.comida.Precio + '\n';
+          this.productoC = this.productoC + cont.comida.Nombre + '\n';
+          this.UnidadesC = this.UnidadesC + cont.comida.Stock + '\n';
+          this.precioC = this.precioC + cont.comida.Precio + '\n';
         }
       }
     });
@@ -88,16 +97,14 @@ export class GlobalPage implements OnInit {
       for (const cont2 of this.data) {
         if (cont2.electronico.Stock < 5) {
           this.ID = this.ID + cont2.id + '\n';
-          this.producto = this.producto + cont2.electronico.Nombre + '\n';
-          this.departamento = this.departamento + 'Electronicos' + '\n';
-          this.Unidades = this.Unidades + cont2.electronico.Stock + ' -- !!!!PRODUCTO APUNTO DE AGOTARSE!!!!' + '\n';
-          this.precio = this.precio + 'Precio: ' + cont2.electronico.Precio + '\n';
+          this.productoE = this.productoE + cont2.electronico.Nombre + '\n';
+          this.UnidadesE = this.UnidadesE + cont2.electronico.Stock + ' -- !!!!PRODUCTO APUNTO DE AGOTARSE!!!!' + '\n';
+          this.precioE = this.precioE + 'Precio: ' + cont2.electronico.Precio + '\n';
         } else {
           this.ID = this.ID + cont2.id + '\n';
-          this.producto = this.producto + cont2.electronico.Nombre + '\n';
-          this.departamento = this.departamento + 'Electronicos' + '\n';
-          this.Unidades = this.Unidades + cont2.electronico.Stock + '\n';
-          this.precio = this.precio + cont2.electronico.Precio + '\n';
+          this.productoE = this.productoE + cont2.electronico.Nombre + '\n';
+          this.UnidadesE = this.UnidadesE + cont2.electronico.Stock + '\n';
+          this.precioE = this.precioE + cont2.electronico.Precio + '\n';
           }
       }
     });
@@ -122,16 +129,14 @@ export class GlobalPage implements OnInit {
       for (const cont3 of this.data) {
         if (cont3.papeleria.Stock < 5) {
           this.ID = this.ID + cont3.id + '\n';
-          this.producto = this.producto + cont3.papeleria.Nombre + '\n';
-          this.departamento = this.departamento + 'Papeleria' + '\n';
-          this.Unidades = this.Unidades + cont3.papeleria.Stock + ' -- !!!!PRODUCTO APUNTO DE AGOTARSE!!!!' + '\n';
-          this.precio = this.precio + 'Precio: ' + cont3.papeleria.Precio + '\n';
+          this.productoP = this.productoP + cont3.papeleria.Nombre + '\n';
+          this.UnidadesP = this.UnidadesP + cont3.papeleria.Stock + ' -- !!!!PRODUCTO APUNTO DE AGOTARSE!!!!' + '\n';
+          this.precioP = this.precioP + 'Precio: ' + cont3.papeleria.Precio + '\n';
         } else {
           this.ID = this.ID + cont3.id + '\n';
-          this.producto = this.producto + cont3.papeleria.Nombre + '\n';
-          this.departamento = this.departamento + 'Papeleria' + '\n';
-          this.Unidades = this.Unidades + cont3.papeleria.Stock + '\n';
-          this.precio = this.precio + cont3.papeleria.Precio + '\n';
+          this.productoP = this.productoP + cont3.papeleria.Nombre + '\n';
+          this.UnidadesP = this.UnidadesP + cont3.papeleria.Stock + '\n';
+          this.precioP = this.precioP + cont3.papeleria.Precio + '\n';
         }
       }
     });
@@ -156,36 +161,31 @@ export class GlobalPage implements OnInit {
       for (const cont4 of this.data) {
         if (cont4.ropa.Stock < 5) {
           this.ID = this.ID + cont4.id + '\n';
-          this.producto = this.producto + cont4.ropa.Nombre + '\n';
-          this.departamento = this.departamento + 'Ropa' + '\n';
-          this.Unidades = this.Unidades + cont4.ropa.Stock + ' -- !!!!PRODUCTO APUNTO DE AGOTARSE!!!!' + '\n';
-          this.precio = this.precio + 'Precio: ' + cont4.ropa.Precio + '\n';
+          this.productoR = this.productoR + cont4.ropa.Nombre + '\n';
+          this.UnidadesR = this.UnidadesR + cont4.ropa.Stock + ' -- !!!!PRODUCTO APUNTO DE AGOTARSE!!!!' + '\n';
+          this.precioR = this.precioR + 'Precio: ' + cont4.ropa.Precio + '\n';
         } else {
           this.ID = this.ID + cont4.id + '\n';
-          this.producto = this.producto + cont4.ropa.Nombre + '\n';
-          this.departamento = this.departamento + 'Ropa' + '\n';
-          this.Unidades = this.Unidades + cont4.ropa.Stock + '\n';
-          this.precio = this.precio + cont4.ropa.Precio + '\n';
+          this.productoR = this.productoR + cont4.ropa.Nombre + '\n';
+          this.UnidadesR = this.UnidadesR + cont4.ropa.Stock + '\n';
+          this.precioR = this.precioR + cont4.ropa.Precio + '\n';
         }
       }
     });
 
   }
 
-  createPDF() {
-
+  createPDFfood() {
     const date = new Date();
     const docDefinition = {
       content: [
-        {text: 'Global Report', style: 'header'},
+        {text: 'Reporte del departamento de comida', style: 'header'},
         {text: date.getDate() + '/' + (new Date().getMonth() + 1) + '/' + date.getFullYear(), alignment: 'right'},
-
-        // Aqui van los datos que tenemos que traernos de la BD
         {
           table: {
                 body: [
-                  ['ID', 'Producto', 'Departamento', 'Unidades en Stock', 'Precio'],
-                  [this.ID, this.producto, this.departamento, this.Unidades, this.precio]
+                  ['ID', 'Producto', 'Unidades en Stock', 'Precio'],
+                  [this.ID, this.productoC, this.UnidadesC, this.precioC]
                 ]
               }
     },
@@ -204,7 +204,112 @@ export class GlobalPage implements OnInit {
     if (this.plt.is('cordova')) {
 
     } else {
-      this.pdfObj.download('Reporte Global_Date: ' + date.getDate() + '-' + (new Date().getMonth() + 1) + '-' + date.getFullYear());
+      this.pdfObj.download('Reporte Dpto: Comida' + date.getDate() + '-' + (new Date().getMonth() + 1) + '-' + date.getFullYear());
+    }
+  }
+
+  createPDFelectronics() {
+
+    const date = new Date();
+    const docDefinition = {
+      content: [
+        {text: 'Reporte del departamento de electronicos', style: 'header'},
+        {text: date.getDate() + '/' + (new Date().getMonth() + 1) + '/' + date.getFullYear(), alignment: 'right'},
+        {
+          table: {
+            body: [
+              ['ID', 'Producto', 'Unidades en Stock', 'Precio'],
+              [this.ID, this.productoE, this.UnidadesE, this.precioE]
+            ]
+          }
+        },
+      ],
+      styles: {
+        header: {
+          fontsize: 18,
+          bold: true,
+        }
+      }
+    };
+
+
+    this.pdfObj = pdfMake.createPdf(docDefinition);
+
+    if (this.plt.is('cordova')) {
+
+    } else {
+      this.pdfObj.download('Reporte Dpto: Electronicos' + date.getDate() + '-' + (new Date().getMonth() + 1) + '-' + date.getFullYear());
+    }
+  }
+
+  createPDFstationery() {
+
+    const date = new Date();
+    const docDefinition = {
+      content: [
+        {text: 'Reporte del departamento de Papeleria', style: 'header'},
+        {text: date.getDate() + '/' + (new Date().getMonth() + 1) + '/' + date.getFullYear(), alignment: 'right'},
+
+        // Aqui van los datos que tenemos que traernos de la BD
+        {
+          table: {
+            body: [
+              ['ID', 'Producto', 'Unidades en Stock', 'Precio'],
+              [this.ID, this.productoP, this.UnidadesP, this.precioP]
+            ]
+          }
+        },
+      ],
+      styles: {
+        header: {
+          fontsize: 18,
+          bold: true,
+        }
+      }
+    };
+
+
+    this.pdfObj = pdfMake.createPdf(docDefinition);
+
+    if (this.plt.is('cordova')) {
+
+    } else {
+      this.pdfObj.download('Reporte Dpto: Papeleria' + date.getDate() + '-' + (new Date().getMonth() + 1) + '-' + date.getFullYear());
+    }
+  }
+
+
+  createPDFclothes() {
+
+    const date = new Date();
+    const docDefinition = {
+      content: [
+        {text: 'Reporte del departamento de Ropa', style: 'header'},
+        {text: date.getDate() + '/' + (new Date().getMonth() + 1) + '/' + date.getFullYear(), alignment: 'right'},
+        {
+          table: {
+            body: [
+              ['ID', 'Producto', 'Unidades en Stock', 'Precio'],
+              [this.ID, this.productoR, this.UnidadesR, this.precioR]
+            ]
+          }
+        },
+      ],
+      styles: {
+        header: {
+          fontsize: 18,
+          bold: true,
+        }
+      }
+    };
+
+
+    this.pdfObj = pdfMake.createPdf(docDefinition);
+
+    if (this.plt.is('cordova')) {
+
+    } else {
+      this.pdfObj.download('Reporte Dpto: Ropa' + date.getDate() + '-' + (new Date().getMonth() + 1) + '-' + date.getFullYear());
     }
   }
 }
