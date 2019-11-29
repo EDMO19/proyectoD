@@ -1,6 +1,4 @@
 <ion-app>
-
-
     <div class="ion-page" >
         <ion-header>
             <ion-toolbar color="secondary">
@@ -11,9 +9,11 @@
             </ion-toolbar>
         </ion-header>
         <ion-content class="ion-padding">
-            <button ion-button full (click)="createPDF()">Generate Report</button>
-        <br/>
-            <button ion-button full (click)="downloadPDF()" [disabled]="!pdfObj">Download Repor</button>
+            <button ion-button full (click)="createPDF()">Global Report</button>
+
+        <br>
+
+            <button ion-button full (click)="createPDF()">Daily Sales Report</button>
         </ion-content>
     </div>
 </ion-app>
